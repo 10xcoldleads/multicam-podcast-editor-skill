@@ -78,6 +78,27 @@ An output is not accepted until:
 - representative frames are visually inspected
 - rejected/superseded versions are clearly labeled
 
+## Definition Of Done
+
+For longform:
+
+- final master duration matches the edit plan within a small encode tolerance
+- early/mid/late sync windows pass objective or manual lip-sync review
+- at least one host/interviewer and one guest speaking moment are visually verified
+- output audio is mastered to the target loudness without true-peak failure
+- obvious production notes, false starts, and choppy mid-sentence cuts have been audited
+- final master is marked accepted in the ledger
+
+For shorts:
+
+- every accepted clip has a documented hook, ending, value, and speaker-coverage reason
+- final MP4s are 1080x1920 unless the user requested another format
+- captions are on cue with spoken words and do not visibly lag
+- overlays do not cover eyes, mouths, or critical gestures
+- both-speaker layouts show interviewer and guest when context requires it
+- final outputs are copied to a clean folder containing only accepted deliverables
+- old drafts, temporary base clips, and renderer work folders are removed after final approval
+
 ## Cleanup Standard
 
 After accepted finals are copied to a clean handoff folder:

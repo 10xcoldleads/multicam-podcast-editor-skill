@@ -33,7 +33,7 @@ If isolated speaker tracks are unavailable, use diarization or transcript speake
 2. Read `references/active-speaker-editing.md` before creating the edit plan.
 3. Read `references/audio-mastering.md` before rendering final audio.
 4. Read `references/qc-ledger.md` before approving any output.
-5. Read `references/social-clips-hyperframes.md` only when producing Shorts/Reels, captions, lower thirds, title cards, or HyperFrames packages.
+5. Read `references/social-clips-hyperframes.md` when producing Shorts/Reels, captions, lower thirds, title cards, HyperFrames packages, or optional Remotion social templates.
 
 ## Decision Rules
 
@@ -44,6 +44,7 @@ If isolated speaker tracks are unavailable, use diarization or transcript speake
 - Build a machine-readable edit plan before rendering longform.
 - Preserve the real footage; do not use AI-generated video for documentary/podcast source replacement unless the user explicitly asks.
 - HyperFrames is optional for the core multicam edit. Use it for deterministic graphics, captions, quote cards, lower thirds, title cards, motion packages, and polished social output.
+- Remotion is optional and should not replace sync, camera cutting, audio mastering, or QC. Use it only as a programmable React renderer for reusable branded short-form templates when that is more useful than HyperFrames.
 - For social clips, make a diligent speaker-on-screen pass: active speaker close-up is preferred, two-speaker split-screen is preferred when context or interviewer/guest credibility matters, and wide/reaction angles are used only when they improve the moment.
 - Keep only accepted finals and reusable project assets after approval. Delete superseded renders, temporary base clips, leftover render work folders, extracted frames, and duplicated handoff copies once a clean final folder exists.
 
@@ -72,6 +73,7 @@ If isolated speaker tracks are unavailable, use diarization or transcript speake
 - Sync proof around at least one host-speaking and one guest-speaking moment.
 - For shorts, verify the visible speaker(s), caption timing, title safe margins, face/mouth occlusion, and source sharpness from early/mid/late frames or a contact sheet.
 - Ledger update with accepted, rejected, and superseded outputs.
+- A clean final delivery folder containing only accepted deliverables.
 
 ## Output Expectations
 

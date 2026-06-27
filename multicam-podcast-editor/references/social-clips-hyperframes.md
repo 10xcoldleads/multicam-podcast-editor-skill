@@ -1,4 +1,25 @@
-# Social Clips And HyperFrames
+# Social Clips, HyperFrames, And Optional Remotion
+
+## Renderer Selection
+
+Keep the editorial pipeline separate from the graphics renderer.
+
+- Use FFmpeg for source sync, camera crops, base social clips, audio muxing, fast drafts, and objective QC.
+- Use HyperFrames when the user wants deterministic animated captions, title overlays, quote cards, lower thirds, branded social packaging, and inspectable layout validation.
+- Use Remotion only when a reusable React component/template system is valuable: client-specific branded layouts, programmatic variants, reusable subtitle components, progress bars, speaker labels, and batch rendering from JSON.
+
+Do not use Remotion, HyperFrames, or any graphics renderer to decide the edit. The edit still comes from transcript timing, camera offsets, active-speaker logic, and QC.
+
+Remotion can improve packaging quality and reusability, but it does not automatically solve:
+
+- audio/video sync
+- active speaker detection
+- clip selection
+- transcript boundary repair
+- loudness/true-peak mastering
+- speaker-on-screen verification
+
+If using Remotion, feed it locked base clips and JSON metadata rather than raw camera files whenever possible. Mux or export with the same locked audio used in the FFmpeg/HyperFrames workflow, then run the same final QC gates.
 
 ## Is HyperFrames Required?
 
@@ -30,6 +51,15 @@ Score transcript windows for:
 - visual energy
 
 Then validate visually.
+
+For each selected clip, record:
+
+- beginning: why the first 1-3 seconds create a hook
+- ending: why the final line is complete, satisfying, or loopable
+- value: what the viewer gains from the clip
+- context: what was removed and why the clip still makes sense
+- speaker coverage: who is speaking at hook/middle/end and whether the screen shows the right person
+- format choice: active-speaker full frame, wide/two-shot, or two-speaker stack
 
 ## Caption Style
 
@@ -103,6 +133,33 @@ Use the existing HyperFrames skills for:
 - `hyperframes-media`: media preprocessing and transcript/caption work
 
 Render editorial picture first, then add HyperFrames graphics once the cut works.
+
+## Remotion Use Pattern
+
+Use Remotion only after the clip slate and base media are locked.
+
+Recommended Remotion data contract:
+
+- `clip_id`
+- `base_video_path`
+- `audio_path` or `use_base_audio`
+- `duration`
+- `speaker_layout`
+- `captions` with word/phrase start/end times
+- `title`
+- `hook`
+- `speaker_labels`
+- `accent_terms`
+- `safe_zones`
+
+Remotion output must still pass the same checks as HyperFrames output:
+
+- expected resolution/fps/codecs
+- audio loudness and true peak
+- no unexpected black/freeze events
+- no caption/overlay face or mouth obstruction
+- active speaker or justified split-screen visible
+- clean final MP4 copied into the delivery folder
 
 ## Fast Iteration Rule
 
