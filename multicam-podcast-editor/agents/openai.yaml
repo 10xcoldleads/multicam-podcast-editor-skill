@@ -1,0 +1,4 @@
+interface:
+  display_name: "Multicam Podcast Editor"
+  short_description: "Sync and cut multicam podcasts"
+  default_prompt: "Use $multicam-podcast-editor to sync a multicam podcast, cut by active speaker, master audio, and QC final clips."

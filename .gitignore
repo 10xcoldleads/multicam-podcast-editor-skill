@@ -1,0 +1,27 @@
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Media and render outputs
+*.mp4
+*.mov
+*.m4v
+*.wav
+*.mp3
+*.aac
+*.zip
+*.7z
+renders/
+raw_video/
+raw_audio/
+audio_master/
+work/
+previews/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
